@@ -1,0 +1,63 @@
+# Pytorch implementation of SEPAL: Spatial Gene Expression Prediction from Local Graphs
+
+### Authored by Gabriel Mejia, Paula Cardenas*, Daniela Ruiz*, Angela Castillo and Pablo Arbeláez
+
+## Set up
+
+Run the following to define your environment in terminal:
+
+```bash
+conda create -n st
+conda activate st
+conda install python==3.10.0
+conda install pytorch torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia
+pip install torch_geometric
+pip install pyg_lib torch_scatter torch_sparse torch_cluster torch_spline_conv -f https://data.pyg.org/whl/torch-2.0.0+cu117.html
+pip install squidpy
+pip install wandb
+pip install wget
+pip install combat
+pip install opencv-python
+pip install --upgrade tbb
+pip install positional-encodings[pytorch]
+```
+
+The datasets and gene annotation files are downloaded automatically.
+
+We use the GTF file of th [basic gene annotation](https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_43/gencode.v43.basic.annotation.gtf.gz) from [GENCODE](https://www.gencodegenes.org/human/) and use the set of functions provided by [GTFtools](https://www.genemine.org/gtftools.php) to compute the genes length in TPM normalozation. 
+
+
+## Main Results
+
+To obtain the main results you must first train the image encoder using the following line:
+
+```bash
+python run_main_config.py --dataset_config configs/datasets/$dataset_name$_deltas.json --model_config configs/models/best_vit_$dataset_name$.json --train_config configs/training/best_vit_$dataset_name$.json 
+```
+
+Where the substring `$dataset_name$` must be replaced by `visium` or `stnet_dataset` depending on what you want to try. This will train the image encoder and save the results inside the `results/best_vit_$dataset_name$` directory. Now, to train the spatial module you must run:
+
+```bash
+python run_main_config.py --dataset_config configs/datasets/$dataset_name$_deltas.json --model_config configs/models/best_sepal_$dataset_name$.json --train_config configs/training/best_sepal_$dataset_name$.json 
+```
+
+This will train the graph neural network and save the results inside the `results/best_sepal_$dataset_name$` directory. Your results might differ a little from the values repported in the paper. Consequently we also provide our pretrained models in the `pretrained_models` directory.
+
+When trained, the programs will prompt the possibility to log results into a weights and biases (W&B) account. We encopurage its use since most of the logging performed inside was designed to interface with W&B.
+
+
+## State-of the art
+
+To run state of the art, we recommend creating a new environment as follows:
+
+```bash
+conda create -n egn
+conda activate egn
+conda install pytorch torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia
+pip install pytorch_lightning==1.5.7
+pip install torch_geometric
+pip install pyg_lib torch_scatter torch_sparse torch_cluster torch_spline_conv -f https://data.pyg.org/whl/torch-2.0.0+cu117.html
+pip install -U torch torchaudio --no-cache-dir
+pip install 'git+https://github.com/katsura-jp/pytorch-cosine-annealing-with-warmup'
+pip install timm
+```
