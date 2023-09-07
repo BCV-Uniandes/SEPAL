@@ -1,0 +1,13 @@
+{
+    "sota":                       "None",            
+    "img_backbone":               "ViT",     
+    "img_use_pretrained":         true,             
+    "pretrained_ie_path":         "best_models_masked/2023-08-13-05-13-17/best_model.pt",            
+    "freeze_img_encoder":         true,             
+    "act":                        "ELU",            
+    "graph_operator":             "GCNConv",
+    "pos_emb_sum":                false,
+    "h_global":                   "//0,512//512,256,128//128,256", 
+    "pooling":                    "SAGPooling",
+    "dropout":                    0.0             
+}

@@ -1,0 +1,20 @@
+{
+    "dataset": "stnet_dataset",          
+    "cell_min_counts": 700,  
+    "cell_max_counts": 100000,  
+    "gene_min_counts": 1000,  
+    "gene_max_counts": 1000000,  
+    "min_exp_frac": 0.01,     
+    "min_glob_exp_frac": 0.60,
+    "top_moran_genes": 256,
+    "wildcard_genes": "None",   
+    "combat_key": "patient",       
+    "random_samples": -1,   
+    "plotting_slides": "BC24105_D1,BC23277_D2,BC23270_E1,BC23508_D2",  
+    "plotting_genes": "ENSG00000254709,ENSG00000184009,ENSG00000130726,ENSG00000241468",   
+    "patch_scale": 1.0,      
+    "patch_size": 224,       
+    "force_compute": false,    
+    "prediction_layer": "c_d_deltas",
+    "n_hops": 1
+}

@@ -1,0 +1,12 @@
+{
+    "optim_metric": "MSE",
+    "epochs": 50,
+    "batch_size": 32,
+    "shuffle": true,
+    "lr": 0.00999132346859734,
+    "optimizer": "SGD",
+    "momentum": 0.9,
+    "average_test": true,
+    "cuda": "6",
+    "exp_name": "masked_stnet_best_visium_in_stnet"
+}
