@@ -1,0 +1,20 @@
+{
+    "dataset":              "V1_Breast_Cancer_Block_A",          
+    "cell_min_counts":      1000,  
+    "cell_max_counts":      100000,  
+    "gene_min_counts":      1000,  
+    "gene_max_counts":      1000000,  
+    "min_exp_frac":         0.8,     
+    "min_glob_exp_frac":    0.8,
+    "top_moran_genes":      256,
+    "wildcard_genes":       "None",   
+    "combat_key":           "slide_id",       
+    "random_samples":       -1,   
+    "plotting_slides":      "V1_Breast_Cancer_Block_A_Section_1,V1_Breast_Cancer_Block_A_Section_2",  
+    "plotting_genes":       "ENSG00000115461,ENSG00000234745,ENSG00000143158,ENSG00000141232",   
+    "patch_scale":          3.0,      
+    "patch_size":           224,       
+    "force_compute":        false,    
+    "prediction_layer":     "d_deltas",
+    "n_hops":               1
+}

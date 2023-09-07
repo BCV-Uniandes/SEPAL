@@ -1,0 +1,13 @@
+{
+    "sota":                       "None",            
+    "img_backbone":               "ViT",     
+    "img_use_pretrained":         true,             
+    "pretrained_ie_path":         "results/best_vit_stnet_dataset/best_model.pt",            
+    "freeze_img_encoder":         true,             
+    "act":                        "ELU",            
+    "graph_operator":             "GraphConv",
+    "pos_emb_sum":                true,
+    "h_global":                   "//-1//0,256//-1", 
+    "pooling":                    "SAGPooling",
+    "dropout":                    0.0             
+}

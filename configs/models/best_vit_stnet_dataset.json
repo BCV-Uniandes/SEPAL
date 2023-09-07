@@ -1,0 +1,13 @@
+{
+    "sota":                       "pretrain",            
+    "img_backbone":               "ViT",     
+    "img_use_pretrained":         true,             
+    "pretrained_ie_path":         "None",            
+    "freeze_img_encoder":         false,             
+    "act":                        "None",            
+    "graph_operator":             "None",
+    "pos_emb_sum":                false,
+    "h_global":                   "//-1//-1//-1", 
+    "pooling":                    "None",
+    "dropout":                    0.0             
+}

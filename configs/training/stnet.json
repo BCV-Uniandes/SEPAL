@@ -1,0 +1,11 @@
+{
+    "epochs": 200,
+    "batch_size": 32,
+    "shuffle": true,
+    "lr": 1e-6,
+    "optimizer": "SGD",
+    "momentum": 0.9,
+    "average_test": true,
+    "cuda": "4",
+    "exp_name": "stnet_base"
+}

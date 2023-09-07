@@ -1,0 +1,6 @@
+{
+    "sota": "stnet",
+    "eps": 1e-3,
+    "img_backbone": "densenet",
+    "img_use_pretrained": true
+}

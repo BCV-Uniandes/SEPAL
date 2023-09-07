@@ -1,0 +1,93 @@
+program: main_STNet.py
+method: bayes
+metric:
+  goal: minimize
+  name: best_val_MSE
+
+parameters:
+  # Dataset parameters
+  dataset:
+    value: V1_Breast_Cancer_Block_A
+  cell_min_counts:
+    value: 1000
+  cell_max_counts:
+    value: 100000
+  gene_min_counts:
+    value: 1000
+  gene_max_counts:
+    value: 1000000
+  min_exp_frac:
+    value: 0.8
+  min_glob_exp_frac:
+    value: 0.8
+  top_moran_genes:
+    value: 256
+  wildcard_genes:
+    value: None
+  combat_key:
+    value: slide_id
+  random_samples:
+    value: -1
+  plotting_slides:
+    value: V1_Breast_Cancer_Block_A_Section_1,V1_Breast_Cancer_Block_A_Section_2
+  plotting_genes:
+    value: ENSG00000115461,ENSG00000234745,ENSG00000143158,ENSG00000141232
+  patch_scale:
+    value: 1.0
+  patch_size:
+    value: 224
+  force_compute:
+    value: "false"
+  prediction_layer:
+    value: d_log1p
+  n_hops:
+    value: 1
+
+  # Model parameters
+  sota:
+    value: stnet
+  img_backbone:
+    value: densenet
+  img_use_pretrained:
+    value: "true"
+  pretrained_ie_path:
+    value:  None
+  freeze_img_encoder:
+    value: "false"
+  act:
+    value: None
+  graph_operator:
+    value: None
+  pos_emb_sum:
+    value: "false"
+  h_global:
+    value: "0//0//0"
+  pooling:
+    value: None
+  dropout:
+    value: 0.0
+
+  # Training parameters
+  optim_metric:
+    value: MSE
+  epochs:
+    value: 50
+  batch_size:
+    values: [32,64,128,256,320]
+    distribution: categorical
+  shuffle:
+    value: "true"
+  lr:
+    distribution: log_uniform_values
+    max: 1e-2
+    min: 1e-06
+  optimizer:
+    value: SGD
+  momentum:
+    value: 0.9
+  average_test:
+    value: "true"
+  cuda:
+    value: "0"
+  exp_name:
+    value: None

@@ -1,0 +1,94 @@
+program: pretrain_backbone.py
+method: grid
+metric:
+  goal: minimize
+  name: val_MSE
+early_terminate:
+  type: hyperband
+  min_iter: 5
+  eta: 2
+
+parameters:
+  # Dataset parameters
+  dataset:
+    value: stnet_dataset
+  cell_min_counts:
+    value: 700
+  cell_max_counts:
+    value: 100000
+  gene_min_counts:
+    value: 1000
+  gene_max_counts:
+    value: 1000000
+  min_exp_frac:
+    value: 0.01
+  min_glob_exp_frac:
+    value: 0.60
+  top_moran_genes:
+    value: 256
+  wildcard_genes:
+    value: None
+  combat_key:
+    value: patient
+  random_samples:
+    value: -1
+  plotting_slides:
+    value: BC24105_D1,BC23277_D2,BC23270_E1,BC23508_D2
+  plotting_genes:
+    value: ENSG00000254709,ENSG00000184009,ENSG00000130726,ENSG00000241468
+  patch_scale:
+    value: 1.0
+  patch_size:
+    value: 224
+  force_compute:
+    value: "false"
+  prediction_layer:
+    value: c_d_deltas
+  n_hops:
+    value: 1
+
+  # Model parameters
+  sota:
+    value: pretrain
+  img_backbone:
+    value: ViT
+  img_use_pretrained:
+    value: "true"
+  pretrained_ie_path:
+    value:  None
+  freeze_img_encoder:
+    value: "false"
+  act:
+    value: None
+  graph_operator:
+    value: None
+  pos_emb_sum:
+    value: "false"
+  h_global:
+    value: "//-1//-1//-1"
+  pooling:
+    value: None
+  dropout:
+    value: 0.0
+
+  # Training parameters
+  optim_metric:
+    value: MSE
+  epochs:
+    value: 50
+  batch_size:
+    values: [320,256,128,64]
+  shuffle:
+    value: "true"
+  lr:
+    values: [1e-2,1e-3,1e-4,1e-5,1e-6]
+  optimizer:
+    value: Adam
+  momentum:
+    value: 0.9
+  average_test:
+    value: "false"
+  cuda:
+    value: "0"
+  exp_name:
+    value: None

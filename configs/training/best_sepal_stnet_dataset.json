@@ -1,0 +1,12 @@
+{
+    "optim_metric": "MSE",
+    "epochs": 100,
+    "batch_size": 256,
+    "shuffle": true,
+    "lr": 0.0001,
+    "optimizer": "Adam",
+    "momentum": 0.9,
+    "average_test": false,
+    "cuda": "0",
+    "exp_name": "best_sepal_stnet_dataset"
+}
