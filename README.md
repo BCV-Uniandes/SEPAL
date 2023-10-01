@@ -52,6 +52,17 @@ Where the substring `$dataset_name$` must be replaced by `visium` or `stnet_data
 python run_main_config.py --dataset_config configs/datasets/$dataset_name$_deltas.json --model_config configs/models/best_sepal_$dataset_name$.json --train_config configs/training/best_sepal_$dataset_name$.json 
 ```
 
-This will train the graph neural network and save the results inside the `results/best_sepal_$dataset_name$` directory. Your results might differ a little from the values reported in the paper. Consequently, we also provide our pre-trained models in the binary release of the code. The configurations are the same as before `configs/models/best_sepal_$dataset_name$.json` but you must change the paths where the image encoders are loaded accordingly. Retraining is mandatory when using another dataset since the specific predictor genes selected by moran scores may vary.
+This will train the graph neural network and save the results inside the `results/best_sepal_$dataset_name$` directory. Your results might differ a little from the values reported in the paper. Consequently, we also provide our pre-trained models in the binary release of the code. The configurations are the same as before `configs/models/best_sepal_$dataset_name$.json` but you must change the paths where the image encoders are loaded accordingly. Retraining is mandatory when using another dataset since the specific predictor genes selected by Moran scores may vary.
 
 When trained, the programs will prompt the possibility to log results into a weights and biases (W&B) account. We encourage its use since most of the logging performed inside was designed to interface with W&B.
+
+## Citation
+
+```
+@article{mejia2023sepal,
+  title={SEPAL: Spatial Gene Expression Prediction from Local Graphs},
+  author={Mejia, Gabriel and C{\'a}rdenas, Paula and Ruiz, Daniela and Castillo, Angela and Arbel{\'a}ez, Pablo},
+  journal={arXiv preprint arXiv:2309.01036},
+  year={2023}
+}
+```
